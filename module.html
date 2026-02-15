@@ -1,0 +1,120 @@
+<div class="template-container">
+    <h2 class="template-header">Template Module</h2>
+    <div class="template-content">
+        <!-- Your module content goes here -->
+        <p>This is a template module.</p>
+    </div>
+</div>
+
+<style>
+    .template-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        gap: 8px;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    .template-header {
+        font-size: 14px;
+        margin: 0;
+        color: #ffffff;
+        font-weight: 600;
+        flex-shrink: 0;
+    }
+
+    .template-content {
+        flex: 1;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .template-content p {
+        margin: 0;
+        font-size: 12px;
+        color: #e0e0e0;
+        line-height: 1.4;
+    }
+
+    /* Example: Input field styling */
+    .template-input {
+        background: #2a2a2a;
+        border: 1px solid #3a3a3a;
+        color: #e0e0e0;
+        padding: 6px 8px;
+        border-radius: 3px;
+        font-size: 12px;
+        font-family: inherit;
+        width: 100%;
+    }
+
+    .template-input:focus {
+        outline: none;
+        border-color: #4a90e2;
+    }
+
+    /* Example: Button styling */
+    .template-button {
+        background: #3a3a3a;
+        border: 1px solid #4a4a4a;
+        color: #e0e0e0;
+        padding: 6px 12px;
+        border-radius: 3px;
+        font-size: 11px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    .template-button:hover {
+        background: #4a4a4a;
+    }
+
+    .template-button:active {
+        background: #2a2a2a;
+    }
+
+    /* Example: List item styling */
+    .template-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .template-list-item {
+        padding: 6px 8px;
+        background: #2a2a2a;
+        border-radius: 3px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    .template-list-item:hover {
+        background: #3a3a3a;
+    }
+
+    /* Example: Scrollbar styling (applied to scrollable containers) */
+    .template-content::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    .template-content::-webkit-scrollbar-track {
+        background: #1a1a1a;
+    }
+
+    .template-content::-webkit-scrollbar-thumb {
+        background: #3a3a3a;
+        border-radius: 3px;
+    }
+
+    .template-content::-webkit-scrollbar-thumb:hover {
+        background: #4a4a4a;
+    }
+</style>
