@@ -1,4 +1,4 @@
-class TemplateModule {
+class IpmModuleTemplateModule {
     constructor(container, config) {
         this.container = container;
         this.config = config;
@@ -12,7 +12,7 @@ class TemplateModule {
 
     async init() {
         // Load HTML template
-        const response = await fetch('/modules/template/module.html');
+        const response = await fetch('/modules/ipm-module-template/module.html');
         const html = await response.text();
         this.container.innerHTML = html;
 
@@ -94,4 +94,4 @@ class TemplateModule {
 }
 
 // Export to global scope
-window.TemplateModule = TemplateModule;
+window.IpmModuleTemplateModule = IpmModuleTemplateModule;
