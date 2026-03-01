@@ -7,14 +7,12 @@ export default class HelloWorldModule {
     }
 
     async init() {
-        this.shadow = this.wrapper.attachShadow({ mode: "open" });
-
         // Load CSS file
         const cssText = await fetch(new URL("./styles.css", import.meta.url))
             .then(res => res.text());
         const sheet = new CSSStyleSheet();
         sheet.replaceSync(cssText);
-        this.shadow.adoptedStyleSheets = [sheet];
+        this.wrapper.adoptedStyleSheets.push(sheet);
 
         // Load HTML
         const response = await fetch(new URL("./module.html", import.meta.url))
@@ -24,15 +22,15 @@ export default class HelloWorldModule {
         const container = document.createElement("div");
         container.innerHTML = html;
         container.className = "container";
-        this.shadow.appendChild(container);
+        this.wrapper.appendChild(container);
 
         // Bind event handlers
         this.registerHandlers();
     }
 
     registerHandlers() {
-        this.shadow.getElementById("echo-btn-post").addEventListener("click", this.echoPost);
-        this.shadow.getElementById("echo-btn-get").addEventListener("click", this.echoGet);
+        this.wrapper.getElementById("echo-btn-post").addEventListener("click", this.echoPost);
+        this.wrapper.getElementById("echo-btn-get").addEventListener("click", this.echoGet);
     }
 
     // Won't work when running via preview but allows for some basic testing
