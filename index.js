@@ -2,6 +2,7 @@ export default class HelloWorldModule {
     constructor(wrapper, config) {
         this.wrapper = wrapper;
         this.config = config;
+        this.abortController = new AbortController();
 
         this.init();
     }
@@ -29,8 +30,12 @@ export default class HelloWorldModule {
     }
 
     registerHandlers() {
-        this.wrapper.getElementById("echo-btn-post").addEventListener("click", this.echoPost);
-        this.wrapper.getElementById("echo-btn-get").addEventListener("click", this.echoGet);
+        this.wrapper.getElementById("echo-btn-post").addEventListener("click", this.echoPost, {
+            signal: this.abortController.signal
+        });
+        this.wrapper.getElementById("echo-btn-get").addEventListener("click", this.echoGet, {
+            signal: this.abortController.signal
+        });
     }
 
     // Won't work when running via preview but allows for some basic testing
@@ -76,6 +81,6 @@ export default class HelloWorldModule {
     }
 
     destroy() {
-        // Cleanup timers/listeners if needed
+        this.abortController.abort();
     }
 }
